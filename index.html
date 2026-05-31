@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Society2Be - one stop society help desk, contacts, incidents, suggestions, and resident guidance.">
+    <title>Society2Be</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#home" aria-label="Society2Be home">
+        <span class="brand-mark" aria-hidden="true">S2B</span>
+        <span>
+          <strong>Society2Be</strong>
+          <small data-i18n="tagline">A house of 2100 families</small>
+        </span>
+      </a>
+      <nav class="main-nav" aria-label="Primary navigation">
+        <a href="#mission" data-i18n="navMission">Mission</a>
+        <a href="#contacts" data-i18n="navContacts">Contacts</a>
+        <a href="#incidents" data-i18n="navIncidents">Incidents</a>
+        <a href="#suggestions" data-i18n="navSuggestions">Suggestions</a>
+        <a href="#guidance" data-i18n="navGuidance">Guidance</a>
+      </nav>
+      <div class="header-actions">
+        <select id="languageSelect" aria-label="Change language">
+          <option value="en">English</option>
+          <option value="hi">हिन्दी</option>
+        </select>
+        <a class="urgent-btn" href="https://wa.me/917417210470" target="_blank" rel="noopener" data-i18n="urgentWhatsapp">Urgent WhatsApp</a>
+      </div>
+    </header>
+
+    <main id="home">
+      <section class="hero">
+        <div class="hero-content">
+          <p class="eyebrow" data-i18n="heroEyebrow">Resident-first society coordination</p>
+          <h1 data-i18n="heroTitle">Society2Be: a clear path toward an ideal society.</h1>
+          <p class="hero-copy" data-i18n="heroCopy">Find trusted contacts, raise incidents, track work status, share suggestions, and build a practical culture of responsibility for 2100 families.</p>
+          <div class="hero-actions">
+            <a class="primary-btn" href="#incidents" data-i18n="raiseIncident">Raise Incident</a>
+            <a class="secondary-btn" href="#contacts" data-i18n="findContact">Find Contact</a>
+          </div>
+        </div>
+        <div class="hero-panel" aria-label="Society summary">
+          <div>
+            <span class="metric">2100</span>
+            <span data-i18n="families">Families</span>
+          </div>
+          <div>
+            <span class="metric" id="incidentMetric">0</span>
+            <span data-i18n="openTickets">Open tickets</span>
+          </div>
+          <div>
+            <span class="metric">24x7</span>
+            <span data-i18n="urgentHelp">Urgent help</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="mission" class="section band">
+        <div class="section-heading">
+          <p class="eyebrow" data-i18n="missionEyebrow">Mission and vision</p>
+          <h2 data-i18n="missionTitle">A society where every problem has a visible owner and every resident has a voice.</h2>
+        </div>
+        <div class="principles">
+          <article>
+            <h3 data-i18n="missionOneTitle">Transparent action</h3>
+            <p data-i18n="missionOneText">Incidents are logged, tracked, and visible so residents do not have to chase the same update repeatedly.</p>
+          </article>
+          <article>
+            <h3 data-i18n="missionTwoTitle">Respectful participation</h3>
+            <p data-i18n="missionTwoText">Suggestions are collected by topic so committees, tower representatives, staff, and residents can work from one shared picture.</p>
+          </article>
+          <article>
+            <h3 data-i18n="missionThreeTitle">Practical self-help</h3>
+            <p data-i18n="missionThreeText">Important contacts, urgent channels, and guidance are kept easy to find, especially for elders and new families.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="contacts" class="section">
+        <div class="section-heading inline-heading">
+          <div>
+            <p class="eyebrow" data-i18n="contactsEyebrow">Directory</p>
+            <h2 data-i18n="contactsTitle">Important contacts</h2>
+          </div>
+          <input id="contactSearch" type="search" data-i18n-placeholder="searchContacts" placeholder="Search staff, tower, electrician, maid...">
+        </div>
+        <div class="contact-grid" id="contactGrid" aria-live="polite"></div>
+      </section>
+
+      <section id="incidents" class="section band">
+        <div class="section-heading">
+          <p class="eyebrow" data-i18n="incidentsEyebrow">Help desk</p>
+          <h2 data-i18n="incidentsTitle">Incident logging and public tracking</h2>
+          <p data-i18n="incidentsIntro">Submit an issue to generate a tracking number. Authorized coordinators can update the status from the public board.</p>
+        </div>
+        <div class="workspace-grid">
+          <form id="incidentForm" class="tool-panel">
+            <h3 data-i18n="newIncident">New incident</h3>
+            <label>
+              <span data-i18n="residentName">Resident name</span>
+              <input name="name" required autocomplete="name">
+            </label>
+            <label>
+              <span data-i18n="towerFlat">Tower / flat</span>
+              <input name="location" required placeholder="A-1204">
+            </label>
+            <label>
+              <span data-i18n="category">Category</span>
+              <select name="category" required>
+                <option>Plumbing</option>
+                <option>Electricity</option>
+                <option>Security</option>
+                <option>Lift</option>
+                <option>Housekeeping</option>
+                <option>Parking</option>
+                <option>Other</option>
+              </select>
+            </label>
+            <label>
+              <span data-i18n="description">Description</span>
+              <textarea name="description" required rows="4"></textarea>
+            </label>
+            <button class="primary-btn" type="submit" data-i18n="generateTicket">Generate tracking no.</button>
+            <p class="form-note" id="ticketNote" role="status"></p>
+          </form>
+
+          <div class="tool-panel board-panel">
+            <div class="panel-top">
+              <h3 data-i18n="publicBoard">Public incident board</h3>
+              <button class="text-btn" id="resetDemo" type="button" data-i18n="resetDemo">Reset demo data</button>
+            </div>
+            <div class="incident-list" id="incidentList" aria-live="polite"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="suggestions" class="section">
+        <div class="section-heading">
+          <p class="eyebrow" data-i18n="suggestionsEyebrow">Resident voice</p>
+          <h2 data-i18n="suggestionsTitle">Suggestions by society topic</h2>
+          <p data-i18n="suggestionsIntro">Share constructive ideas on the recurring topics that every large society faces.</p>
+        </div>
+        <div class="workspace-grid">
+          <form id="suggestionForm" class="tool-panel">
+            <h3 data-i18n="newSuggestion">New suggestion</h3>
+            <label>
+              <span data-i18n="topic">Topic</span>
+              <select name="topic" required>
+                <option>Cleanliness</option>
+                <option>Security</option>
+                <option>Water</option>
+                <option>Electricity</option>
+                <option>Parking</option>
+                <option>Children and elders</option>
+                <option>Events and culture</option>
+                <option>Communication</option>
+              </select>
+            </label>
+            <label>
+              <span data-i18n="yourSuggestion">Your suggestion</span>
+              <textarea name="message" required rows="5"></textarea>
+            </label>
+            <button class="primary-btn" type="submit" data-i18n="submitSuggestion">Submit suggestion</button>
+          </form>
+          <div class="suggestion-list" id="suggestionList" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <section id="guidance" class="section band">
+        <div class="section-heading">
+          <p class="eyebrow" data-i18n="guidanceEyebrow">Path to better living</p>
+          <h2 data-i18n="guidanceTitle">Guidance posts for society problems</h2>
+        </div>
+        <div class="post-grid">
+          <article>
+            <h3 data-i18n="postOneTitle">How to report problems clearly</h3>
+            <p data-i18n="postOneText">Mention the exact location, photo evidence if available, safety risk, and whether the issue affects one flat, one tower, or the whole society.</p>
+          </article>
+          <article>
+            <h3 data-i18n="postTwoTitle">How residents can help committees</h3>
+            <p data-i18n="postTwoText">Use one official channel, avoid duplicate complaints, give realistic response time, and volunteer when a topic needs resident support.</p>
+          </article>
+          <article>
+            <h3 data-i18n="postThreeTitle">How to build trust</h3>
+            <p data-i18n="postThreeText">Publish status, explain delays, respect staff, close the loop after work is done, and keep decisions visible.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div>
+        <strong>Society2Be</strong>
+        <p data-i18n="footerText">For urgent support, connect through WhatsApp or email.</p>
+      </div>
+      <div class="footer-links">
+        <a href="https://wa.me/917417210470" target="_blank" rel="noopener">+91-7417210470</a>
+        <a href="mailto:vivek.skillup@gmail.com">vivek.skillup@gmail.com</a>
+      </div>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
