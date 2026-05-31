@@ -354,6 +354,23 @@ h3 {
   font-weight: 900;
 }
 
+/* Make blog card titles smaller on the index (but keep featured post larger) */
+.blog-card:not(.featured-post) h2 {
+  font-size: 1.05rem;
+  line-height: 1.2;
+  margin: 0.2rem 0 0.6rem;
+  font-weight: 800;
+}
+
+/* Responsive: single-column on small screens */
+@media (max-width: 800px) {
+  .blog-index-grid {
+    grid-template-columns: 1fr;
+  }
+  .blog-card:not(.featured-post) h2 {
+    font-size: 1.15rem;
+  }
+}
 .blog-hero {
   display: grid;
   align-items: end;
