@@ -167,6 +167,7 @@ textarea {
   display: grid;
   grid-template-columns: minmax(0, 1.35fr) minmax(17rem, 0.65fr);
   align-items: center;
+  gap: clamp(1rem, 3vw, 2.5rem);
   min-height: 82vh;
   padding: clamp(2rem, 6vw, 5rem) clamp(1rem, 5vw, 4rem);
   background:
@@ -232,8 +233,31 @@ h3 {
   gap: 0.8rem;
 }
 
+.hero-showcase {
+  display: grid;
+  gap: 1rem;
+  min-width: 0;
+}
+
+.society-photo {
+  margin: 0;
+  overflow: hidden;
+  border: 4px solid rgba(255, 255, 255, 0.86);
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 22px 60px rgba(62, 20, 3, 0.25);
+}
+
+.society-photo img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
 .hero-panel {
   display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1rem;
   padding: 1rem;
   background: rgba(255, 255, 255, 0.92);
@@ -280,7 +304,8 @@ h3 {
 
 .principles,
 .post-grid,
-.contact-grid {
+.contact-grid,
+.blog-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1rem;
@@ -289,6 +314,7 @@ h3 {
 .principles article,
 .post-grid article,
 .contact-card,
+.blog-card,
 .tool-panel,
 .suggestion-card,
 .incident-card {
@@ -301,9 +327,142 @@ h3 {
 .principles article,
 .post-grid article,
 .contact-card,
+.blog-card,
 .suggestion-card,
 .incident-card {
   padding: 1rem;
+}
+
+.blog-card {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 0.9rem;
+  overflow: hidden;
+}
+
+.blog-card img {
+  width: calc(100% + 2rem);
+  max-width: none;
+  height: 11rem;
+  margin: -1rem -1rem 0;
+  object-fit: cover;
+  background: #fff2dd;
+}
+
+.blog-card a {
+  color: var(--deep-red);
+  font-weight: 900;
+}
+
+.blog-hero {
+  display: grid;
+  align-items: end;
+  min-height: 48vh;
+  padding: clamp(3rem, 7vw, 6rem) clamp(1rem, 5vw, 4rem);
+  color: #fff;
+  background:
+    linear-gradient(120deg, rgba(143, 29, 20, 0.86), rgba(255, 138, 0, 0.82)),
+    url("assets/blog-ideal-society.svg");
+  background-position: center;
+  background-size: cover;
+}
+
+.blog-hero .eyebrow {
+  color: #fff7df;
+}
+
+.blog-hero h1 {
+  max-width: 16ch;
+}
+
+.blog-index-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 44rem);
+  gap: 1rem;
+}
+
+.featured-post {
+  grid-template-columns: minmax(14rem, 0.6fr) minmax(0, 1fr);
+  grid-template-rows: none;
+  align-items: center;
+}
+
+.featured-post img {
+  width: calc(100% + 1rem);
+  height: 100%;
+  min-height: 17rem;
+  margin: -1rem 0 -1rem -1rem;
+}
+
+.article {
+  max-width: 52rem;
+  margin: 0 auto;
+  padding: clamp(2rem, 5vw, 4rem) clamp(1rem, 4vw, 2rem);
+}
+
+.article-header {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.article-header h1 {
+  max-width: 13ch;
+  color: var(--deep-red);
+}
+
+.article-subtitle {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+.article-header img {
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+}
+
+.article section {
+  padding: 1.25rem 0;
+  border-top: 1px solid var(--line);
+}
+
+.article section:first-of-type {
+  border-top: 0;
+}
+
+.article p,
+.article li {
+  font-size: 1.05rem;
+}
+
+.article blockquote {
+  margin: 1rem 0;
+  padding: 1rem;
+  border-left: 6px solid var(--saffron);
+  border-radius: 8px;
+  background: #fff2dd;
+  color: var(--deep-red);
+  font-size: 1.2rem;
+  font-weight: 900;
+}
+
+.article ul {
+  padding-left: 1.25rem;
+}
+
+.article-pillars {
+  display: grid;
+  gap: 1rem;
+}
+
+.article-pillars > div {
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
 }
 
 .contact-card strong {
@@ -451,12 +610,25 @@ label span {
   .inline-heading,
   .principles,
   .post-grid,
-  .contact-grid {
+  .contact-grid,
+  .blog-grid,
+  .featured-post {
     grid-template-columns: 1fr;
   }
 
   .hero {
     min-height: auto;
+  }
+
+  .hero-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .featured-post img {
+    width: calc(100% + 2rem);
+    height: 12rem;
+    min-height: 0;
+    margin: -1rem -1rem 0;
   }
 }
 
@@ -502,8 +674,21 @@ label span {
     grid-template-columns: 1fr;
   }
 
+  .society-photo img {
+    aspect-ratio: 16 / 10;
+  }
+
   .section {
     padding: 2.25rem 0.85rem;
+  }
+
+  .blog-hero {
+    min-height: auto;
+    padding: 2.5rem 0.85rem;
+  }
+
+  .article {
+    padding: 2rem 0.85rem;
   }
 
   .header-actions,

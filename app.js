@@ -4,6 +4,9 @@ const stateKeys = {
   language: "society2be.language"
 };
 
+const backendConfig = window.SOCIETY2BE_CONFIG || {};
+const sheetsEndpoint = (backendConfig.googleAppsScriptUrl || "").trim();
+
 const statuses = [
   "Not picked",
   "Selected",
@@ -14,7 +17,7 @@ const statuses = [
   "Need residents help"
 ];
 
-const contacts = [
+let contacts = [
   { name: "Emergency Society Helpline", role: "Super urgent connect", category: "Urgent", phone: "+91-7417210470", email: "vivek.skillup@gmail.com" },
   { name: "Security Main Gate", role: "Visitor entry and security help", category: "Security", phone: "+91-9000000001" },
   { name: "Maintenance Office", role: "Common area maintenance", category: "Staff", phone: "+91-9000000002" },
@@ -33,11 +36,12 @@ const translations = {
     navContacts: "Contacts",
     navIncidents: "Incidents",
     navSuggestions: "Suggestions",
+    navBlog: "Blog",
     navGuidance: "Guidance",
     urgentWhatsapp: "Urgent WhatsApp",
     heroEyebrow: "Resident-first society coordination",
-    heroTitle: "Society2Be: a clear path toward an ideal society.",
-    heroCopy: "Find trusted contacts, raise incidents, track work status, share suggestions, and build a practical culture of responsibility for 2100 families.",
+    heroTitle: "Society2Be: where 2100 homes move as one community.",
+    heroCopy: "A living society compass for everyday harmony: trusted contacts, transparent incident tracking, thoughtful suggestions, and shared action that turns problems into progress.",
     raiseIncident: "Raise Incident",
     findContact: "Find Contact",
     families: "Families",
@@ -72,6 +76,21 @@ const translations = {
     topic: "Topic",
     yourSuggestion: "Your suggestion",
     submitSuggestion: "Submit suggestion",
+    blogEyebrow: "Community journal",
+    blogTitle: "Read the work, ideas, and stories behind Society2Be",
+    blogIntro: "This space will hold graceful, easy-to-read posts about society problems, solutions, resident participation, and the culture we want to build together.",
+    blogCategoryMission: "Mission",
+    blogCategoryWork: "Work updates",
+    blogCategoryIdeas: "Ideas",
+    blogOneTitle: "Why an ideal society needs a shared path",
+    blogOneText: "A short opening note on clarity, ownership, and the responsibility that turns 2100 individual homes into one caring community.",
+    blogTwoTitle: "From complaint to closure",
+    blogTwoText: "How incident numbers, public status, and timely updates can reduce confusion and create trust between residents and teams.",
+    blogThreeTitle: "Suggestions that become action",
+    blogThreeText: "A place for future posts on cleanliness, security, parking, water, events, elder care, and everyday cooperation.",
+    readMission: "Read mission",
+    readIncidents: "View incidents",
+    shareSuggestion: "Share suggestion",
     guidanceEyebrow: "Path to better living",
     guidanceTitle: "Guidance posts for society problems",
     postOneTitle: "How to report problems clearly",
@@ -97,11 +116,12 @@ const translations = {
     navContacts: "संपर्क",
     navIncidents: "शिकायतें",
     navSuggestions: "सुझाव",
+    navBlog: "ब्लॉग",
     navGuidance: "मार्गदर्शन",
     urgentWhatsapp: "तुरंत WhatsApp",
     heroEyebrow: "निवासी पहले, समाज साथ",
-    heroTitle: "Society2Be: आदर्श समाज की स्पष्ट राह।",
-    heroCopy: "भरोसेमंद संपर्क खोजें, शिकायत दर्ज करें, काम की स्थिति देखें, सुझाव दें और 2100 परिवारों के लिए जिम्मेदारी की संस्कृति बनाएं।",
+    heroTitle: "Society2Be: जहां 2100 घर एक समुदाय की तरह आगे बढ़ते हैं।",
+    heroCopy: "रोजमर्रा की सद्भावना का समाज-मार्गदर्शक: भरोसेमंद संपर्क, पारदर्शी शिकायत ट्रैकिंग, विचारशील सुझाव और मिलकर की गई कार्रवाई जो समस्याओं को प्रगति में बदलती है।",
     raiseIncident: "शिकायत दर्ज करें",
     findContact: "संपर्क खोजें",
     families: "परिवार",
@@ -136,6 +156,21 @@ const translations = {
     topic: "विषय",
     yourSuggestion: "आपका सुझाव",
     submitSuggestion: "सुझाव जमा करें",
+    blogEyebrow: "कम्युनिटी जर्नल",
+    blogTitle: "Society2Be के काम, विचार और कहानियां पढ़ें",
+    blogIntro: "यहां समाज की समस्याओं, समाधानों, निवासी भागीदारी और साथ मिलकर बनने वाली संस्कृति पर सुंदर और आसान पोस्ट रहेंगी।",
+    blogCategoryMission: "मिशन",
+    blogCategoryWork: "काम के अपडेट",
+    blogCategoryIdeas: "विचार",
+    blogOneTitle: "आदर्श समाज को साझा राह क्यों चाहिए",
+    blogOneText: "स्पष्टता, जिम्मेदारी और उस सोच पर एक छोटी शुरुआत जो 2100 अलग घरों को एक संवेदनशील समुदाय बनाती है।",
+    blogTwoTitle: "शिकायत से समाधान तक",
+    blogTwoText: "टिकट नंबर, सार्वजनिक स्थिति और समय पर अपडेट कैसे भ्रम कम करके निवासियों और टीमों के बीच भरोसा बनाते हैं।",
+    blogThreeTitle: "सुझाव जो कार्रवाई बनते हैं",
+    blogThreeText: "स्वच्छता, सुरक्षा, पार्किंग, पानी, कार्यक्रम, बुजुर्गों की देखभाल और रोजमर्रा के सहयोग पर आने वाली पोस्ट के लिए जगह।",
+    readMission: "मिशन पढ़ें",
+    readIncidents: "शिकायतें देखें",
+    shareSuggestion: "सुझाव दें",
     guidanceEyebrow: "बेहतर जीवन की राह",
     guidanceTitle: "समाज समस्याओं के लिए मार्गदर्शन पोस्ट",
     postOneTitle: "समस्या साफ तरीके से कैसे बताएं",
@@ -169,6 +204,68 @@ function writeJson(key, value) {
   localStorage.setItem(key, JSON.stringify(value));
 }
 
+function backendEnabled() {
+  return sheetsEndpoint.startsWith("https://");
+}
+
+function backendPost(payload) {
+  if (!backendEnabled()) return;
+  const iframeName = "society2beBackendFrame";
+  let iframe = document.querySelector(`iframe[name="${iframeName}"]`);
+  if (!iframe) {
+    iframe = document.createElement("iframe");
+    iframe.name = iframeName;
+    iframe.hidden = true;
+    document.body.appendChild(iframe);
+  }
+
+  const form = document.createElement("form");
+  form.action = sheetsEndpoint;
+  form.method = "POST";
+  form.target = iframeName;
+  form.hidden = true;
+
+  Object.entries(payload).forEach(([name, value]) => {
+    const input = document.createElement("input");
+    input.name = name;
+    input.value = value ?? "";
+    form.appendChild(input);
+  });
+
+  document.body.appendChild(form);
+  form.submit();
+  form.remove();
+}
+
+function backendRead() {
+  if (!backendEnabled()) {
+    return Promise.resolve(null);
+  }
+
+  return new Promise((resolve, reject) => {
+    const callbackName = `society2be_${Date.now()}_${Math.random().toString(36).slice(2)}`;
+    const script = document.createElement("script");
+    const separator = sheetsEndpoint.includes("?") ? "&" : "?";
+    const cleanup = () => {
+      delete window[callbackName];
+      script.remove();
+    };
+
+    window[callbackName] = (data) => {
+      cleanup();
+      resolve(data);
+    };
+
+    script.onerror = () => {
+      cleanup();
+      reject(new Error("Unable to load Google Sheets data."));
+    };
+
+    script.src = `${sheetsEndpoint}${separator}action=list&callback=${callbackName}`;
+    document.body.appendChild(script);
+  });
+}
+
 function currentLanguage() {
   return localStorage.getItem(stateKeys.language) || "en";
 }
@@ -192,6 +289,7 @@ function applyLanguage(language) {
 }
 
 function seedIncidents() {
+  if (backendEnabled()) return readJson(stateKeys.incidents, []);
   const existing = readJson(stateKeys.incidents, null);
   if (existing) return existing;
   const sample = [
@@ -207,6 +305,47 @@ function seedIncidents() {
   ];
   writeJson(stateKeys.incidents, sample);
   return sample;
+}
+
+function normalizeIncident(incident) {
+  return {
+    id: incident.id || createTicketNumber(),
+    name: incident.name || "",
+    location: incident.location || "",
+    category: incident.category || "Other",
+    description: incident.description || "",
+    status: incident.status || "Not picked",
+    createdAt: incident.createdAt || new Date().toISOString()
+  };
+}
+
+function normalizeSuggestion(suggestion) {
+  return {
+    topic: suggestion.topic || "Communication",
+    message: suggestion.message || "",
+    createdAt: suggestion.createdAt || new Date().toISOString()
+  };
+}
+
+async function refreshBackendData() {
+  if (!backendEnabled()) return;
+  try {
+    const data = await backendRead();
+    const incidents = (data.incidents || []).map(normalizeIncident);
+    const suggestions = (data.suggestions || []).map(normalizeSuggestion);
+    const remoteContacts = (data.contacts || []).filter((contact) => contact.name);
+    if (remoteContacts.length) {
+      contacts = remoteContacts;
+    }
+    writeJson(stateKeys.incidents, incidents);
+    writeJson(stateKeys.suggestions, suggestions);
+    renderContacts();
+    renderIncidents();
+    renderSuggestions();
+  } catch {
+    renderIncidents();
+    renderSuggestions();
+  }
 }
 
 function renderContacts() {
@@ -327,6 +466,7 @@ document.getElementById("incidentForm").addEventListener("submit", (event) => {
   const incidents = readJson(stateKeys.incidents, []);
   incidents.push(incident);
   writeJson(stateKeys.incidents, incidents);
+  backendPost({ action: "createIncident", ...incident });
   event.currentTarget.reset();
   document.getElementById("ticketNote").textContent = `${t("ticketGenerated")} ${incident.id}`;
   renderIncidents();
@@ -343,6 +483,7 @@ document.getElementById("incidentList").addEventListener("click", (event) => {
     return incident;
   });
   writeJson(stateKeys.incidents, incidents);
+  backendPost({ action: "updateIncident", id: ticket, status: select.value });
   renderIncidents();
 });
 
@@ -363,10 +504,15 @@ document.getElementById("suggestionForm").addEventListener("submit", (event) => 
   const suggestions = readJson(stateKeys.suggestions, []);
   suggestions.push(suggestion);
   writeJson(stateKeys.suggestions, suggestions);
+  backendPost({ action: "createSuggestion", ...suggestion });
   event.currentTarget.reset();
   renderSuggestions();
 });
 
 seedIncidents();
 document.getElementById("languageSelect").value = currentLanguage();
+if (backendEnabled()) {
+  document.getElementById("resetDemo").disabled = true;
+}
 applyLanguage(currentLanguage());
+refreshBackendData();

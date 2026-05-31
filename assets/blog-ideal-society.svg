@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-label="Ideal housing society illustration">
+  <rect width="1200" height="720" fill="#fff8ec"/>
+  <circle cx="950" cy="120" r="68" fill="#ffc247"/>
+  <path d="M0 520c165-58 310-52 455-12s286 32 430-15 230-35 315 2v225H0z" fill="#78b35f"/>
+  <g fill="#f4dfb7" stroke="#b9935b" stroke-width="5">
+    <path d="M100 220h150v315H100z"/>
+    <path d="M295 150h180v385H295z"/>
+    <path d="M530 105h205v430H530z"/>
+    <path d="M790 185h210v350H790z"/>
+  </g>
+  <g fill="#fffaf2" stroke="#caa875" stroke-width="3">
+    <rect x="130" y="260" width="34" height="28"/><rect x="190" y="260" width="34" height="28"/>
+    <rect x="130" y="325" width="34" height="28"/><rect x="190" y="325" width="34" height="28"/>
+    <rect x="335" y="195" width="38" height="30"/><rect x="405" y="195" width="38" height="30"/>
+    <rect x="335" y="270" width="38" height="30"/><rect x="405" y="270" width="38" height="30"/>
+    <rect x="575" y="155" width="42" height="32"/><rect x="655" y="155" width="42" height="32"/>
+    <rect x="575" y="235" width="42" height="32"/><rect x="655" y="235" width="42" height="32"/>
+    <rect x="840" y="235" width="44" height="32"/><rect x="925" y="235" width="44" height="32"/>
+    <rect x="840" y="315" width="44" height="32"/><rect x="925" y="315" width="44" height="32"/>
+  </g>
+  <g fill="#8f1d14">
+    <circle cx="515" cy="560" r="24"/><circle cx="605" cy="548" r="28"/><circle cx="700" cy="560" r="24"/>
+    <path d="M450 635c20-58 72-86 155-86s136 28 156 86z"/>
+  </g>
+  <path d="M505 432h205a42 42 0 0142 42v10a42 42 0 01-42 42H505a42 42 0 01-42-42v-10a42 42 0 0142-42z" fill="#fff" stroke="#ead7bd" stroke-width="8"/>
+  <path d="M520 478h70M625 478h70" stroke="#d9431f" stroke-width="14" stroke-linecap="round"/>
+</svg>
