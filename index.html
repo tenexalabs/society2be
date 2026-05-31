@@ -21,6 +21,7 @@
         <a href="#contacts" data-i18n="navContacts">Contacts</a>
         <a href="#incidents" data-i18n="navIncidents">Incidents</a>
         <a href="#suggestions" data-i18n="navSuggestions">Suggestions</a>
+        <a href="blog/" data-i18n="navBlog">Blog</a>
         <a href="#guidance" data-i18n="navGuidance">Guidance</a>
       </nav>
       <div class="header-actions">
@@ -36,14 +37,18 @@
       <section class="hero">
         <div class="hero-content">
           <p class="eyebrow" data-i18n="heroEyebrow">Resident-first society coordination</p>
-          <h1 data-i18n="heroTitle">Society2Be: a clear path toward an ideal society.</h1>
-          <p class="hero-copy" data-i18n="heroCopy">Find trusted contacts, raise incidents, track work status, share suggestions, and build a practical culture of responsibility for 2100 families.</p>
+          <h1 data-i18n="heroTitle">Society2Be: where 2100 homes move as one community.</h1>
+          <p class="hero-copy" data-i18n="heroCopy">A living society compass for everyday harmony: trusted contacts, transparent incident tracking, thoughtful suggestions, and shared action that turns problems into progress.</p>
           <div class="hero-actions">
             <a class="primary-btn" href="#incidents" data-i18n="raiseIncident">Raise Incident</a>
             <a class="secondary-btn" href="#contacts" data-i18n="findContact">Find Contact</a>
           </div>
         </div>
-        <div class="hero-panel" aria-label="Society summary">
+        <aside class="hero-showcase" aria-label="Society overview">
+          <figure class="society-photo">
+            <img src="assets/society-photo.jpg" alt="Society residential towers and green common area" onerror="this.src='assets/society-photo-placeholder.svg'; this.onerror=null;">
+          </figure>
+          <div class="hero-panel" aria-label="Society summary">
           <div>
             <span class="metric">2100</span>
             <span data-i18n="families">Families</span>
@@ -56,7 +61,8 @@
             <span class="metric">24x7</span>
             <span data-i18n="urgentHelp">Urgent help</span>
           </div>
-        </div>
+          </div>
+        </aside>
       </section>
 
       <section id="mission" class="section band">
@@ -170,7 +176,44 @@
         </div>
       </section>
 
-      <section id="guidance" class="section band">
+      <section id="blog" class="section band">
+        <div class="section-heading">
+          <p class="eyebrow" data-i18n="blogEyebrow">Community journal</p>
+          <h2 data-i18n="blogTitle">Read the work, ideas, and stories behind Society2Be</h2>
+          <p data-i18n="blogIntro">This space will hold graceful, easy-to-read posts about society problems, solutions, resident participation, and the culture we want to build together.</p>
+        </div>
+        <div class="blog-grid">
+          <article class="blog-card">
+            <img src="assets/blog-community.svg" alt="" aria-hidden="true">
+            <div>
+              <span class="pill" data-i18n="blogCategoryMission">Mission</span>
+              <h3 data-i18n="blogOneTitle">Why an ideal society needs a shared path</h3>
+              <p data-i18n="blogOneText">A short opening note on clarity, ownership, and the responsibility that turns 2100 individual homes into one caring community.</p>
+              <a href="blog/ideal-housing-society.html" data-i18n="readMission">Read mission</a>
+            </div>
+          </article>
+          <article class="blog-card">
+            <img src="assets/blog-helpdesk.svg" alt="" aria-hidden="true">
+            <div>
+              <span class="pill" data-i18n="blogCategoryWork">Work updates</span>
+              <h3 data-i18n="blogTwoTitle">From complaint to closure</h3>
+              <p data-i18n="blogTwoText">How incident numbers, public status, and timely updates can reduce confusion and create trust between residents and teams.</p>
+              <a href="#incidents" data-i18n="readIncidents">View incidents</a>
+            </div>
+          </article>
+          <article class="blog-card">
+            <img src="assets/blog-suggestions.svg" alt="" aria-hidden="true">
+            <div>
+              <span class="pill" data-i18n="blogCategoryIdeas">Ideas</span>
+              <h3 data-i18n="blogThreeTitle">Suggestions that become action</h3>
+              <p data-i18n="blogThreeText">A place for future posts on cleanliness, security, parking, water, events, elder care, and everyday cooperation.</p>
+              <a href="#suggestions" data-i18n="shareSuggestion">Share suggestion</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="guidance" class="section">
         <div class="section-heading">
           <p class="eyebrow" data-i18n="guidanceEyebrow">Path to better living</p>
           <h2 data-i18n="guidanceTitle">Guidance posts for society problems</h2>
@@ -203,6 +246,7 @@
       </div>
     </footer>
 
+    <script src="config.js"></script>
     <script src="app.js"></script>
   </body>
 </html>

@@ -12,7 +12,7 @@ const types = {
 
 createServer(async (request, response) => {
   const url = new URL(request.url || "/", `http://${request.headers.host}`);
-  const requestedPath = url.pathname === "/" ? "index.html" : url.pathname.slice(1);
+  const requestedPath = url.pathname.endsWith("/") ? `${url.pathname.slice(1)}index.html` : url.pathname.slice(1);
   const filePath = resolve(join(root, requestedPath));
 
   if (!filePath.startsWith(root)) {

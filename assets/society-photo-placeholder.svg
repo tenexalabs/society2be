@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-label="Residential towers and green common area">
+  <rect width="1200" height="800" fill="#9ed0ff"/>
+  <rect y="470" width="1200" height="330" fill="#79b85a"/>
+  <path d="M0 555c165-45 275-40 410-10s250 28 410-12 270-23 380 14v253H0z" fill="#5fa14d" opacity=".75"/>
+  <g fill="#f4dfb7" stroke="#b9935b" stroke-width="4">
+    <path d="M25 250h155v340H25z"/>
+    <path d="M210 175h170v415H210z"/>
+    <path d="M420 95h190v495H420z"/>
+    <path d="M655 120h190v470H655z"/>
+    <path d="M890 55h250v535H890z"/>
+  </g>
+  <g fill="#fff8ee" stroke="#c9a875" stroke-width="3">
+    <g id="windows">
+      <rect x="55" y="285" width="36" height="26"/><rect x="115" y="285" width="36" height="26"/>
+      <rect x="55" y="345" width="36" height="26"/><rect x="115" y="345" width="36" height="26"/>
+      <rect x="55" y="405" width="36" height="26"/><rect x="115" y="405" width="36" height="26"/>
+      <rect x="245" y="220" width="38" height="27"/><rect x="310" y="220" width="38" height="27"/>
+      <rect x="245" y="285" width="38" height="27"/><rect x="310" y="285" width="38" height="27"/>
+      <rect x="245" y="350" width="38" height="27"/><rect x="310" y="350" width="38" height="27"/>
+      <rect x="460" y="145" width="42" height="30"/><rect x="535" y="145" width="42" height="30"/>
+      <rect x="460" y="220" width="42" height="30"/><rect x="535" y="220" width="42" height="30"/>
+      <rect x="460" y="295" width="42" height="30"/><rect x="535" y="295" width="42" height="30"/>
+      <rect x="700" y="170" width="42" height="30"/><rect x="775" y="170" width="42" height="30"/>
+      <rect x="700" y="245" width="42" height="30"/><rect x="775" y="245" width="42" height="30"/>
+      <rect x="700" y="320" width="42" height="30"/><rect x="775" y="320" width="42" height="30"/>
+      <rect x="940" y="105" width="45" height="31"/><rect x="1025" y="105" width="45" height="31"/>
+      <rect x="940" y="185" width="45" height="31"/><rect x="1025" y="185" width="45" height="31"/>
+      <rect x="940" y="265" width="45" height="31"/><rect x="1025" y="265" width="45" height="31"/>
+    </g>
+  </g>
+  <circle cx="610" cy="595" r="55" fill="#d5d5c8" stroke="#8d8a73" stroke-width="6"/>
+  <circle cx="610" cy="595" r="22" fill="#b9b9a2"/>
+  <g fill="#2f7a33">
+    <circle cx="95" cy="548" r="38"/><rect x="88" y="548" width="13" height="68" fill="#7d542e"/>
+    <circle cx="1120" cy="545" r="42"/><rect x="1113" y="545" width="14" height="76" fill="#7d542e"/>
+  </g>
+</svg>
