@@ -350,7 +350,8 @@ async function refreshBackendData() {
 
 function renderContacts() {
   const grid = document.getElementById("contactGrid");
-  const query = document.getElementById("contactSearch").value.trim().toLowerCase();
+  const query = document.getElementById("contactSearch")?.value.trim().toLowerCase() || "";
+  if (!grid) return;
   const filtered = contacts.filter((contact) => {
     return [contact.name, contact.role, contact.category, contact.phone, contact.email]
       .filter(Boolean)
@@ -382,9 +383,11 @@ function renderContacts() {
 
 function renderIncidents() {
   const list = document.getElementById("incidentList");
+  const metric = document.getElementById("incidentMetric");
+  if (!list || !metric) return;
   const incidents = readJson(stateKeys.incidents, []);
   const openCount = incidents.filter((incident) => incident.status !== "Done").length;
-  document.getElementById("incidentMetric").textContent = openCount;
+  metric.textContent = openCount;
   list.innerHTML = "";
   if (!incidents.length) {
     list.innerHTML = `<p class="empty-state">${t("noIncidents")}</p>`;
@@ -420,6 +423,7 @@ function renderIncidents() {
 
 function renderSuggestions() {
   const list = document.getElementById("suggestionList");
+  if (!list) return;
   const suggestions = readJson(stateKeys.suggestions, []);
   list.innerHTML = "";
   if (!suggestions.length) {
@@ -445,13 +449,21 @@ function createTicketNumber() {
   return `S2B-2100-${next}`;
 }
 
-document.getElementById("languageSelect").addEventListener("change", (event) => {
-  applyLanguage(event.target.value);
-});
+const languageSelect = document.getElementById("languageSelect");
+if (languageSelect) {
+  languageSelect.addEventListener("change", (event) => {
+    applyLanguage(event.target.value);
+  });
+}
 
-document.getElementById("contactSearch").addEventListener("input", renderContacts);
+const contactSearch = document.getElementById("contactSearch");
+if (contactSearch) {
+  contactSearch.addEventListener("input", renderContacts);
+}
 
-document.getElementById("incidentForm").addEventListener("submit", (event) => {
+const incidentForm = document.getElementById("incidentForm");
+if (incidentForm) {
+  incidentForm.addEventListener("submit", (event) => {
   event.preventDefault();
   const form = new FormData(event.currentTarget);
   const incident = {
@@ -468,14 +480,21 @@ document.getElementById("incidentForm").addEventListener("submit", (event) => {
   writeJson(stateKeys.incidents, incidents);
   backendPost({ action: "createIncident", ...incident });
   event.currentTarget.reset();
-  document.getElementById("ticketNote").textContent = `${t("ticketGenerated")} ${incident.id}`;
+  const ticketNote = document.getElementById("ticketNote");
+  if (ticketNote) {
+    ticketNote.textContent = `${t("ticketGenerated")} ${incident.id}`;
+  }
   renderIncidents();
-});
+  });
+}
 
-document.getElementById("incidentList").addEventListener("click", (event) => {
+const incidentListEl = document.getElementById("incidentList");
+if (incidentListEl) {
+  incidentListEl.addEventListener("click", (event) => {
   const ticket = event.target.dataset.update;
   if (!ticket) return;
   const select = document.querySelector(`select[data-ticket="${ticket}"]`);
+  if (!select) return;
   const incidents = readJson(stateKeys.incidents, []).map((incident) => {
     if (incident.id === ticket) {
       return { ...incident, status: select.value };
@@ -485,15 +504,21 @@ document.getElementById("incidentList").addEventListener("click", (event) => {
   writeJson(stateKeys.incidents, incidents);
   backendPost({ action: "updateIncident", id: ticket, status: select.value });
   renderIncidents();
-});
+  });
+}
 
-document.getElementById("resetDemo").addEventListener("click", () => {
+const resetDemoBtn = document.getElementById("resetDemo");
+if (resetDemoBtn) {
+  resetDemoBtn.addEventListener("click", () => {
   localStorage.removeItem(stateKeys.incidents);
   seedIncidents();
   renderIncidents();
-});
+  });
+}
 
-document.getElementById("suggestionForm").addEventListener("submit", (event) => {
+const suggestionForm = document.getElementById("suggestionForm");
+if (suggestionForm) {
+  suggestionForm.addEventListener("submit", (event) => {
   event.preventDefault();
   const form = new FormData(event.currentTarget);
   const suggestion = {
@@ -507,12 +532,15 @@ document.getElementById("suggestionForm").addEventListener("submit", (event) => 
   backendPost({ action: "createSuggestion", ...suggestion });
   event.currentTarget.reset();
   renderSuggestions();
-});
+  });
+}
 
 seedIncidents();
-document.getElementById("languageSelect").value = currentLanguage();
-if (backendEnabled()) {
-  document.getElementById("resetDemo").disabled = true;
+if (languageSelect) {
+  languageSelect.value = currentLanguage();
+}
+if (backendEnabled() && resetDemoBtn) {
+  resetDemoBtn.disabled = true;
 }
 applyLanguage(currentLanguage());
 refreshBackendData();

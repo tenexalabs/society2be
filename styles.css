@@ -304,11 +304,18 @@ h3 {
 
 .principles,
 .post-grid,
-.contact-grid,
-.blog-grid {
+.contact-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1rem;
+}
+
+.blog-grid {
+  display: flex;
+  overflow-x: auto;
+  gap: 1rem;
+  padding-bottom: 0.75rem;
+  scroll-snap-type: x mandatory;
 }
 
 .principles article,
@@ -338,6 +345,8 @@ h3 {
   grid-template-rows: auto 1fr;
   gap: 0.9rem;
   overflow: hidden;
+  min-width: 22rem;
+  flex: 0 0 22rem;
 }
 
 .blog-card img {

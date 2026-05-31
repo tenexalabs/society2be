@@ -17,10 +17,10 @@
         </span>
       </a>
       <nav class="main-nav" aria-label="Primary navigation">
+        <a href="#home" data-i18n="navHome">Home</a>
         <a href="#mission" data-i18n="navMission">Mission</a>
-        <a href="#contacts" data-i18n="navContacts">Contacts</a>
-        <a href="#incidents" data-i18n="navIncidents">Incidents</a>
-        <a href="#suggestions" data-i18n="navSuggestions">Suggestions</a>
+        <a href="incidents.html" data-i18n="navIncidents">Incidents</a>
+        <a href="suggestions.html" data-i18n="navSuggestions">Suggestions</a>
         <a href="blog/" data-i18n="navBlog">Blog</a>
         <a href="#guidance" data-i18n="navGuidance">Guidance</a>
       </nav>
@@ -64,8 +64,7 @@
           </div>
         </aside>
       </section>
-
-      <section id="mission" class="section band">
+<section id="mission" class="section band">
         <div class="section-heading">
           <p class="eyebrow" data-i18n="missionEyebrow">Mission and vision</p>
           <h2 data-i18n="missionTitle">A society where every problem has a visible owner and every resident has a voice.</h2>
@@ -83,96 +82,6 @@
             <h3 data-i18n="missionThreeTitle">Practical self-help</h3>
             <p data-i18n="missionThreeText">Important contacts, urgent channels, and guidance are kept easy to find, especially for elders and new families.</p>
           </article>
-        </div>
-      </section>
-
-      <section id="contacts" class="section">
-        <div class="section-heading inline-heading">
-          <div>
-            <p class="eyebrow" data-i18n="contactsEyebrow">Directory</p>
-            <h2 data-i18n="contactsTitle">Important contacts</h2>
-          </div>
-          <input id="contactSearch" type="search" data-i18n-placeholder="searchContacts" placeholder="Search staff, tower, electrician, maid...">
-        </div>
-        <div class="contact-grid" id="contactGrid" aria-live="polite"></div>
-      </section>
-
-      <section id="incidents" class="section band">
-        <div class="section-heading">
-          <p class="eyebrow" data-i18n="incidentsEyebrow">Help desk</p>
-          <h2 data-i18n="incidentsTitle">Incident logging and public tracking</h2>
-          <p data-i18n="incidentsIntro">Submit an issue to generate a tracking number. Authorized coordinators can update the status from the public board.</p>
-        </div>
-        <div class="workspace-grid">
-          <form id="incidentForm" class="tool-panel">
-            <h3 data-i18n="newIncident">New incident</h3>
-            <label>
-              <span data-i18n="residentName">Resident name</span>
-              <input name="name" required autocomplete="name">
-            </label>
-            <label>
-              <span data-i18n="towerFlat">Tower / flat</span>
-              <input name="location" required placeholder="A-1204">
-            </label>
-            <label>
-              <span data-i18n="category">Category</span>
-              <select name="category" required>
-                <option>Plumbing</option>
-                <option>Electricity</option>
-                <option>Security</option>
-                <option>Lift</option>
-                <option>Housekeeping</option>
-                <option>Parking</option>
-                <option>Other</option>
-              </select>
-            </label>
-            <label>
-              <span data-i18n="description">Description</span>
-              <textarea name="description" required rows="4"></textarea>
-            </label>
-            <button class="primary-btn" type="submit" data-i18n="generateTicket">Generate tracking no.</button>
-            <p class="form-note" id="ticketNote" role="status"></p>
-          </form>
-
-          <div class="tool-panel board-panel">
-            <div class="panel-top">
-              <h3 data-i18n="publicBoard">Public incident board</h3>
-              <button class="text-btn" id="resetDemo" type="button" data-i18n="resetDemo">Reset demo data</button>
-            </div>
-            <div class="incident-list" id="incidentList" aria-live="polite"></div>
-          </div>
-        </div>
-      </section>
-
-      <section id="suggestions" class="section">
-        <div class="section-heading">
-          <p class="eyebrow" data-i18n="suggestionsEyebrow">Resident voice</p>
-          <h2 data-i18n="suggestionsTitle">Suggestions by society topic</h2>
-          <p data-i18n="suggestionsIntro">Share constructive ideas on the recurring topics that every large society faces.</p>
-        </div>
-        <div class="workspace-grid">
-          <form id="suggestionForm" class="tool-panel">
-            <h3 data-i18n="newSuggestion">New suggestion</h3>
-            <label>
-              <span data-i18n="topic">Topic</span>
-              <select name="topic" required>
-                <option>Cleanliness</option>
-                <option>Security</option>
-                <option>Water</option>
-                <option>Electricity</option>
-                <option>Parking</option>
-                <option>Children and elders</option>
-                <option>Events and culture</option>
-                <option>Communication</option>
-              </select>
-            </label>
-            <label>
-              <span data-i18n="yourSuggestion">Your suggestion</span>
-              <textarea name="message" required rows="5"></textarea>
-            </label>
-            <button class="primary-btn" type="submit" data-i18n="submitSuggestion">Submit suggestion</button>
-          </form>
-          <div class="suggestion-list" id="suggestionList" aria-live="polite"></div>
         </div>
       </section>
 
@@ -198,7 +107,7 @@
               <span class="pill" data-i18n="blogCategoryWork">Work updates</span>
               <h3 data-i18n="blogTwoTitle">From complaint to closure</h3>
               <p data-i18n="blogTwoText">How incident numbers, public status, and timely updates can reduce confusion and create trust between residents and teams.</p>
-              <a href="#incidents" data-i18n="readIncidents">View incidents</a>
+              <a href="incidents.html" data-i18n="readIncidents">View incidents</a>
             </div>
           </article>
           <article class="blog-card">
@@ -207,11 +116,243 @@
               <span class="pill" data-i18n="blogCategoryIdeas">Ideas</span>
               <h3 data-i18n="blogThreeTitle">Suggestions that become action</h3>
               <p data-i18n="blogThreeText">A place for future posts on cleanliness, security, parking, water, events, elder care, and everyday cooperation.</p>
-              <a href="#suggestions" data-i18n="shareSuggestion">Share suggestion</a>
+              <a href="suggestions.html" data-i18n="shareSuggestion">Share suggestion</a>
             </div>
           </article>
         </div>
       </section>
+<!-- IMPORTANT CONTACTS -->
+<section id="contacts" class="section">
+
+    <div class="section-heading inline-heading">
+        <div>
+            <p class="eyebrow">Directory</p>
+            <h2>Important Contacts</h2>
+        </div>
+
+        <input
+            id="contactSearch"
+            type="search"
+            placeholder="Search contacts, services, categories..."
+        >
+    </div>
+
+    <div id="contactContainer">
+
+        <div class="contact-category">
+
+            <button class="accordion">
+                Society Management
+            </button>
+
+            <div class="accordion-content">
+
+                <div class="contact-row">
+                    <span>RWA Office</span>
+                    <a href="tel:+911234567890">📞 Call</a>
+                </div>
+
+                <div class="contact-row">
+                    <span>Maintenance Manager</span>
+                    <a href="tel:+919999999999">📞 Call</a>
+                </div>
+
+                <div class="contact-row">
+                    <span>Security Head</span>
+                    <a href="tel:+918888888888">📞 Call</a>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="contact-category">
+
+            <button class="accordion">
+                Utility Services
+            </button>
+
+            <div class="accordion-content">
+
+                <div class="contact-row">
+                    <span>Electrician</span>
+                    <a href="tel:+917777777777">📞 Call</a>
+                </div>
+
+                <div class="contact-row">
+                    <span>Plumber</span>
+                    <a href="tel:+916666666666">📞 Call</a>
+                </div>
+
+                <div class="contact-row">
+                    <span>Lift Support</span>
+                    <a href="tel:+915555555555">📞 Call</a>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="contact-category">
+
+            <button class="accordion">
+                Emergency Services
+            </button>
+
+            <div class="accordion-content">
+
+                <div class="contact-row">
+                    <span>Police</span>
+                    <a href="tel:100">📞 Call</a>
+                </div>
+
+                <div class="contact-row">
+                    <span>Ambulance</span>
+                    <a href="tel:108">📞 Call</a>
+                </div>
+
+                <div class="contact-row">
+                    <span>Fire Brigade</span>
+                    <a href="tel:101">📞 Call</a>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- INCIDENT DASHBOARD -->
+<section id="incidents" class="section band">
+
+    <div class="section-heading">
+
+        <p class="eyebrow">Help Desk</p>
+
+        <h2>Incident Management</h2>
+
+        <p>
+            Track issues raised by residents and monitor progress.
+        </p>
+
+    </div>
+
+    <div class="stats-grid">
+
+        <a href="incidents.html" class="dashboard-card">
+            <h3>Open</h3>
+            <span>14</span>
+        </a>
+
+        <a href="incidents.html" class="dashboard-card">
+            <h3>In Progress</h3>
+            <span>7</span>
+        </a>
+
+        <a href="incidents.html" class="dashboard-card">
+            <h3>Resolved</h3>
+            <span>122</span>
+        </a>
+
+        <a href="incidents.html" class="dashboard-card action-card">
+            <h3>Submit New</h3>
+            <span>➜</span>
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- SUGGESTION CATEGORIES -->
+<section id="suggestions" class="section">
+
+    <div class="section-heading">
+
+        <p class="eyebrow">Resident Voice</p>
+
+        <h2>Community Suggestions</h2>
+
+        <p>
+            Browse suggestions by category.
+        </p>
+
+    </div>
+
+    <div class="suggestion-grid">
+
+        <a href="suggestions.html?category=security" class="topic-card">
+            🔒 Security
+            <small>11 Suggestions</small>
+        </a>
+
+        <a href="suggestions.html?category=parking" class="topic-card">
+            🚗 Parking
+            <small>15 Suggestions</small>
+        </a>
+
+        <a href="suggestions.html?category=landscaping" class="topic-card">
+            🌳 Landscaping
+            <small>8 Suggestions</small>
+        </a>
+
+        <a href="suggestions.html?category=amenities" class="topic-card">
+            🏋️ Amenities
+            <small>19 Suggestions</small>
+        </a>
+
+        <a href="suggestions.html?category=pets" class="topic-card">
+            🐕 Pets
+            <small>5 Suggestions</small>
+        </a>
+
+        <a href="suggestions.html?category=improvements" class="topic-card">
+            💡 Improvements
+            <small>24 Suggestions</small>
+        </a>
+
+    </div>
+
+</section>
+    
+
+<!--       
+      <section id="contacts" class="section">
+        <div class="section-heading inline-heading">
+          <div>
+            <p class="eyebrow" data-i18n="contactsEyebrow">Directory</p>
+            <h2 data-i18n="contactsTitle">Important contacts</h2>
+          </div>
+          <input id="contactSearch" type="search" data-i18n-placeholder="searchContacts" placeholder="Search staff, tower, electrician, maid...">
+        </div>
+        <div class="contact-grid" id="contactGrid" aria-live="polite"></div>
+      </section>
+
+      <section id="incidents" class="section band">
+        <div class="section-heading">
+          <p class="eyebrow" data-i18n="incidentsEyebrow">Help desk</p>
+          <h2 data-i18n="incidentsTitle">Incident logging and public tracking</h2>
+          <p data-i18n="incidentsIntro">View open incidents and their status. <a href="incidents.html" style="color: var(--deep-red); font-weight: 900;">Submit a new incident →</a></p>
+        </div>
+        <div class="tool-panel board-panel" style="max-width: 100%;">
+          <div class="panel-top">
+            <h3 data-i18n="publicBoard">Public incident board</h3>
+            <button class="text-btn" id="resetDemo" type="button" data-i18n="resetDemo">Reset demo data</button>
+          </div>
+          <div class="incident-list" id="incidentList" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <section id="suggestions" class="section">
+        <div class="section-heading">
+          <p class="eyebrow" data-i18n="suggestionsEyebrow">Resident voice</p>
+          <h2 data-i18n="suggestionsTitle">Suggestions by society topic</h2>
+          <p data-i18n="suggestionsIntro">View community suggestions. <a href="suggestions.html" style="color: var(--deep-red); font-weight: 900;">Add a suggestion →</a></p>
+        </div>
+        <div class="suggestion-list" id="suggestionList" aria-live="polite"></div>
+      </section> -->
+
+     
 
       <section id="guidance" class="section">
         <div class="section-heading">
@@ -239,6 +380,7 @@
       <div>
         <strong>Society2Be</strong>
         <p data-i18n="footerText">For urgent support, connect through WhatsApp or email.</p>
+        <p style="font-size: 0.85rem; color: var(--muted); margin-top: 0.5rem;">Built with <span style="color: var(--vermillion);">❤</span> by <strong>Tenexalabs</strong> | <strong>Er. Vivek Gupta</strong></p>
       </div>
       <div class="footer-links">
         <a href="https://wa.me/917417210470" target="_blank" rel="noopener">+91-7417210470</a>

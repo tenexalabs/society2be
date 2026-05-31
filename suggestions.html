@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Share a suggestion - Society2Be community voice.">
+    <title>Share Suggestion | Society2Be</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="./" aria-label="Society2Be home">
+        <span class="brand-mark" aria-hidden="true">S2B</span>
+        <span>
+          <strong>Society2Be</strong>
+          <small data-i18n="tagline">A house of 2100 families</small>
+        </span>
+      </a>
+      <nav class="main-nav" aria-label="Primary navigation">
+        <a href="./" data-i18n="navHome">Home</a>
+        <a href="./#mission" data-i18n="navMission">Mission</a>
+        <a href="incidents.html" data-i18n="navIncidents">Incidents</a>
+        <a href="suggestions.html" data-i18n="navSuggestions">Suggestions</a>
+        <a href="blog/" data-i18n="navBlog">Blog</a>
+        <a href="./#guidance" data-i18n="navGuidance">Guidance</a>
+      </nav>
+      <div class="header-actions">
+        <select id="languageSelect" aria-label="Change language">
+          <option value="en">English</option>
+          <option value="hi">हिन्दी</option>
+        </select>
+        <a class="urgent-btn" href="https://wa.me/917417210470" target="_blank" rel="noopener" data-i18n="urgentWhatsapp">Urgent WhatsApp</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="section-heading">
+          <p class="eyebrow" data-i18n="suggestionsEyebrow">Resident voice</p>
+          <h1 data-i18n="suggestionsTitle">Share a Suggestion</h1>
+          <p data-i18n="suggestionsIntro">Your ideas improve our community. Share constructive thoughts on any topic and help shape Society2Be.</p>
+        </div>
+        <div class="workspace-grid">
+          <form id="suggestionForm" class="tool-panel">
+            <h3 data-i18n="newSuggestion">New suggestion</h3>
+            <label>
+              <span data-i18n="topic">Topic</span>
+              <select name="topic" required>
+                <option>Cleanliness</option>
+                <option>Security</option>
+                <option>Water</option>
+                <option>Electricity</option>
+                <option>Parking</option>
+                <option>Children and elders</option>
+                <option>Events and culture</option>
+                <option>Communication</option>
+              </select>
+            </label>
+            <label>
+              <span data-i18n="yourSuggestion">Your suggestion</span>
+              <textarea name="message" required rows="5" placeholder="Share your idea or improvement suggestion..."></textarea>
+            </label>
+            <button class="primary-btn" type="submit" data-i18n="submitSuggestion">Submit suggestion</button>
+          </form>
+          <div class="tool-panel board-panel">
+            <div class="panel-top">
+              <h3 style="margin: 0;">Recent suggestions</h3>
+            </div>
+            <div class="suggestion-list" id="suggestionList" aria-live="polite"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div>
+        <strong>Society2Be</strong>
+        <p data-i18n="footerText">For urgent support, connect through WhatsApp or email.</p>
+        <p style="font-size: 0.85rem; color: var(--muted); margin-top: 0.5rem;">Built with <span style="color: var(--vermillion);">❤</span> by <strong>Tenexalabs</strong> | <strong>Er. Vivek Gupta</strong></p>
+      </div>
+      <div class="footer-links">
+        <a href="https://wa.me/917417210470" target="_blank" rel="noopener">+91-7417210470</a>
+        <a href="mailto:vivek.skillup@gmail.com">vivek.skillup@gmail.com</a>
+      </div>
+    </footer>
+
+    <script src="config.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
