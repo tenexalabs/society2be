@@ -377,7 +377,7 @@ h3 {
 
 .blog-index-grid {
   display: grid;
-  grid-template-columns: minmax(0, 44rem);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1rem;
 }
 
