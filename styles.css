@@ -362,15 +362,6 @@ h3 {
   font-weight: 800;
 }
 
-/* Responsive: single-column on small screens */
-@media (max-width: 800px) {
-  .blog-index-grid {
-    grid-template-columns: 1fr;
-  }
-  .blog-card:not(.featured-post) h2 {
-    font-size: 1.15rem;
-  }
-}
 .blog-hero {
   display: grid;
   align-items: end;
@@ -396,6 +387,15 @@ h3 {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1rem;
+}
+
+@media (max-width: 800px) {
+  .blog-index-grid {
+    grid-template-columns: 1fr;
+  }
+  .blog-card:not(.featured-post) h2 {
+    font-size: 1.15rem;
+  }
 }
 
 .featured-post {
